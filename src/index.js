@@ -9,3 +9,9 @@ root.render(
     <App />
   </React.StrictMode>
 );
+
+const obj = {
+  name: "Olga",
+  age: 22,
+};
+obj.age = 23;

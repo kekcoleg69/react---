@@ -4,7 +4,16 @@ import Movie from "./Movie";
 function MovieList({ movies, deleteMovie }) {
   return (
     <ol>
-      <Movie movies={movies} deleteMovie={deleteMovie} />
+      {movies.map((movie) => {
+        return (
+          <Movie
+            key={movie.id}
+            movie={movie}
+            deleteMovie={deleteMovie}
+            movies={movies}
+          />
+        );
+      })}
     </ol>
   );
 }

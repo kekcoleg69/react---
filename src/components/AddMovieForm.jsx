@@ -2,26 +2,33 @@ import React, { useState } from "react";
 import Card from "./Card";
 
 function AddMovieForm({ movies, onAddMovie }) {
-  const [title, setTitle] = useState("");
-  const [year, setYear] = useState("");
-  const [genre, setGenre] = useState("");
+  const [form, setForm] = useState({
+    title: "",
+    year: "",
+    genre: "",
+  });
+  function changeForm(evt) {
+    const { name, value } = evt.target;
+    setForm({ ...form, [name]: value });
+  }
   return (
     <Card>
       <form>
         <input
           type="text"
-          value={title}
+          value={form.title}
+          name="title"
           placeholder="Название фильма"
           onChange={(evt) => {
-            setTitle(evt.target.value);
+            changeForm(evt);
           }}
         />
         <select
-          value={genre}
+          value={form.genre}
           name="genre"
           id="genre"
           onChange={(evt) => {
-            setGenre(evt.target.value);
+            changeForm(evt);
           }}
         >
           <option value="" disabled>
@@ -35,29 +42,30 @@ function AddMovieForm({ movies, onAddMovie }) {
         </select>
         <input
           type="text"
-          value={year}
+          value={form.year}
+          name="year"
           placeholder="Год фильма"
           onChange={(evt) => {
-            setYear(evt.target.value);
+            changeForm(evt);
           }}
         />
         <button
           onClick={(evt) => {
-            if (!genre) {
+            if (!form.genre) {
               return;
             }
-            if (!title) {
+            if (!form.title) {
               return;
             }
-            if (!year) {
+            if (!form.year) {
               return;
             }
             evt.preventDefault();
             const obj = {
               id: Date.now(),
-              title: title,
-              year: year,
-              genre: genre,
+              title: form.title,
+              year: form.year,
+              genre: form.genre,
             };
             onAddMovie(movies, obj);
           }}

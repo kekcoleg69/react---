@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
-function Filter({ movies, displayedMovies, filteredMovies }) {
+function Filter({ movies, filteredMovies }) {
+  const [displayedMovies, setDisplayedMovies] = useState(movies);
+
   const [genre, setGenre] = useState("");
   return (
     <form>
