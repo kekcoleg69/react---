@@ -1,0 +1,29 @@
+.input {
+  width: 30%;
+  padding: 10px 14px;
+  font-size: 16px;
+  color: #333;
+
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+/* При наведении */
+.input:hover {
+  border-color: #999;
+}
+
+/* При фокусе */
+.input:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.25);
+}
+
+/* Если нужно отключить браузерный autofill желтого фона */
+.input:-webkit-autofill {
+  box-shadow: 0 0 0 30px white inset !important;
+}

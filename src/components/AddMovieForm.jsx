@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Card from "./Card";
+import MyInput from "../components/ui/MyInput/MyInput";
 
-function AddMovieForm({ movies, onAddMovie }) {
+function AddMovieForm({ movies, onAddMovie, genres }) {
   const [form, setForm] = useState({
     title: "",
     year: "",
@@ -11,10 +12,12 @@ function AddMovieForm({ movies, onAddMovie }) {
     const { name, value } = evt.target;
     setForm({ ...form, [name]: value });
   }
+  const chooseGenre = [...genres];
+  chooseGenre[0] = "Выбрать жанр";
   return (
     <Card>
       <form>
-        <input
+        <MyInput
           type="text"
           value={form.title}
           name="title"
@@ -31,16 +34,19 @@ function AddMovieForm({ movies, onAddMovie }) {
             changeForm(evt);
           }}
         >
-          <option value="" disabled>
-            Жанр фильма
-          </option>
-
-          <option value="Драма">Драма</option>
-          <option value="Боевик">Боевик</option>
-          <option value="Комедия">Комедия</option>
-          <option value="Ужасы">Ужасы</option>
+          {chooseGenre.map((genre) => {
+            return genre === "Выбрать жанр" ? (
+              <option key={genre} value="" disabled>
+                {genre}
+              </option>
+            ) : (
+              <option key={genre} value={genre}>
+                {genre}
+              </option>
+            );
+          })}
         </select>
-        <input
+        <MyInput
           type="text"
           value={form.year}
           name="year"

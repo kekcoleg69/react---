@@ -16,7 +16,14 @@ function App() {
     { id: 4, title: "Сияние", year: 1980, genre: "Ужасы" },
     { id: 5, title: "Крепкий орешек", year: 1988, genre: "Боевик" },
   ]);
-
+  const [genres, setGenres] = useState([
+    "Отфильтровать фильмы",
+    "Все",
+    "Драма",
+    "Боевик",
+    "Комедия",
+    "Ужасы",
+  ]);
   function deleteMovie(arr, id) {
     const newArr = arr.filter((movie) => {
       return movie.id !== id;
@@ -27,19 +34,24 @@ function App() {
     setMovies([...arr, obj]);
   }
   function filteredMovies(arr, genre) {
-    if (genre === "Все") {
-      setMovies(arr);
-      return;
-    }
-    let newArr = arr.filter((movie) => {
-      return movie.genre === genre;
-    });
-    setMovies(newArr);
+    // if (genre === "Все") {
+    //   setMovies(arr);
+    //   return;
+    // }
+    // let newArr = arr.filter((movie) => {
+    //   return movie.genre === genre;
+    // });
+    // setMovies(newArr);
   }
   return (
     <div>
-      <Filter filteredMovies={filteredMovies} movies={movies} />
-      <AddMovieForm movies={movies} onAddMovie={onAddMovie} />
+      <Filter
+        setMovies={setMovies}
+        filteredMovies={filteredMovies}
+        movies={movies}
+        genres={genres}
+      />
+      <AddMovieForm movies={movies} onAddMovie={onAddMovie} genres={genres} />
       <MovieList movies={movies} deleteMovie={deleteMovie} />
     </div>
   );
