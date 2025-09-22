@@ -13,6 +13,7 @@ function Filter({ movies, filteredMovies, genres, setMovies }) {
       return movie.genre === genre;
     });
     setMovies(newArr);
+    console.log("aa");
   }, [genre]);
 
   return (
