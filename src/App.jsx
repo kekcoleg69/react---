@@ -33,24 +33,10 @@ function App() {
   function onAddMovie(arr, obj) {
     setMovies([...arr, obj]);
   }
-  function filteredMovies(arr, genre) {
-    // if (genre === "Все") {
-    //   setMovies(arr);
-    //   return;
-    // }
-    // let newArr = arr.filter((movie) => {
-    //   return movie.genre === genre;
-    // });
-    // setMovies(newArr);
-  }
+
   return (
     <div>
-      <Filter
-        setMovies={setMovies}
-        filteredMovies={filteredMovies}
-        movies={movies}
-        genres={genres}
-      />
+      <Filter setMovies={setMovies} movies={movies} genres={genres} />
       <AddMovieForm movies={movies} onAddMovie={onAddMovie} genres={genres} />
       <MovieList movies={movies} deleteMovie={deleteMovie} />
     </div>

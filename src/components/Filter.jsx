@@ -35,15 +35,6 @@ function Filter({ movies, filteredMovies, genres, setMovies }) {
           );
         })}
       </select>
-      <button
-        onClick={(evt) => {
-          evt.preventDefault();
-
-          filteredMovies(displayedMovies, genre);
-        }}
-      >
-        Отфильровать
-      </button>
     </form>
   );
 }
