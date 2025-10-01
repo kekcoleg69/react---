@@ -1,0 +1,29 @@
+.modal_overlay{
+position: fixed;
+width: 100vw;
+height: 100vh;
+left: 0;
+top: 0;
+background-color: rgba(0, 0, 0, 0.4);
+display: flex;
+justify-content: center;
+align-items:center;
+scale: 0;
+}
+.active{
+	scale:1;
+}
+.modal_content{
+	position: relative;
+background-color:white;
+padding: 20px;
+border-radius: 12px;
+}
+.btn{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.title{
+	justify-self: center;
+}

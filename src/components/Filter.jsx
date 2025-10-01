@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-function Filter({ movies, filteredMovies, genres, setMovies }) {
+function Filter({ movies, genres, setMovies }) {
   const [displayedMovies, setDisplayedMovies] = useState(movies);
 
   const [genre, setGenre] = useState("");

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import Card from "./Card";
+import { useState } from "react";
 import MyInput from "../components/ui/MyInput/MyInput";
+import Card from "./Card";
 
-function AddMovieForm({ movies, onAddMovie, genres }) {
+function AddMovieForm({ movies, onAddMovie, genres, setActive }) {
   const [form, setForm] = useState({
     title: "",
     year: "",
@@ -74,6 +74,8 @@ function AddMovieForm({ movies, onAddMovie, genres }) {
               genre: form.genre,
             };
             onAddMovie(movies, obj);
+            setForm({ title: "", year: "", genre: "" });
+            setActive(false);
           }}
         >
           Добавить фильм

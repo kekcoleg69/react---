@@ -4,3 +4,8 @@ span{
 form{
 	margin-bottom: 15px;
 }
+.showFormBtn{
+	display: block;
+	width: 100px;
+	height: 100px;
+}
