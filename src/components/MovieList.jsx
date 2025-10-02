@@ -1,10 +1,15 @@
-import React from "react";
 import Movie from "./Movie";
 
-function MovieList({ movies, deleteMovie }) {
+function MovieList({ movies, deleteMovie, selectedGenre }) {
+  const visibleMovies =
+    selectedGenre === "all"
+      ? movies
+      : movies.filter((movie) => {
+          return movie.genre === selectedGenre;
+        });
   return (
     <ol>
-      {movies.map((movie) => {
+      {visibleMovies.map((movie) => {
         return (
           <Movie
             key={movie.id}
